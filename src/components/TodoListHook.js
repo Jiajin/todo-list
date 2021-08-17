@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid"; // 1. import the UUID
 import TodoItemHook from "./TodoItemHook";
 
-const TodoListHook = () => {
+const TodoListHook = ({ title }) => {
   const [todoArray, setTodoArray] = useState({
     todos: [
       { id: uuidv4(), name: "Buy Milk", isDone: false },
-      { id: uuidv4(), name: "Do push up", isDone: true },
+      { id: uuidv4(), name: "Do push up", isDone: false },
     ],
   });
 
@@ -62,7 +62,7 @@ const TodoListHook = () => {
         placeholder="Take a break"
       />
       <button onClick={() => addNewTodo()}>add</button>
-      <div>TodoList</div>
+      <div data-testid="todolist-title">{title}</div>
       <div>
         {todoArray.todos.map((todo) => (
           <div>

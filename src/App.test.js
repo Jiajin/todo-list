@@ -15,13 +15,13 @@ test("renders default text", () => {
 
 test("should increase the list when there is input and button is clicked", () => {
   const { getByText, getByLabelText } = render(<App />);
-  const addOneButton = getByText("Add-List");
+  const addOneButton = getByText("Add-List"); //get button
 
-  const todoTextInput = getByLabelText("addnewlist"); //Identifies the txtInput using "filter-text"
+  const todoTextInput = getByLabelText("addnewlist"); //Identifies the txtInput using aria label
   fireEvent.change(todoTextInput, {
-    target: { value: "todo1" },
+    target: { value: "2ndtodolist" },
   }); //fireEvent to change the value of the prev identified input from "" to "todo1"
 
   fireEvent.click(addOneButton);
-  expect(getByText("todo1")).toBeInTheDocument();
+  expect(getByText("2ndtodolist")).toBeInTheDocument();
 });

@@ -3,11 +3,25 @@ import "./TodoItem.css";
 
 const TodoItemHook = ({ id, name, isDone, setTodo, deleteTodo }) => (
   <div className="todo-item">
-    <span className="todo-item__completed" onClick={() => setTodo(id, !isDone)}>
-      {isDone && <img alt="done" src={`${process.env.PUBLIC_URL}/tick.png`} />}
+    <span
+      aria-label="todo-checkbox"
+      className="todo-item__completed"
+      onClick={() => setTodo(id, !isDone)}
+    >
+      {isDone && (
+        <img
+          aria-label="checkbox-tick"
+          alt="done"
+          src={`${process.env.PUBLIC_URL}/tick.png`}
+        />
+      )}
     </span>
     <span className="todo-item__name">{name}</span>
-    <span onClick={() => deleteTodo(id)} className="todo-item__delete">
+    <span
+      aria-label="delete-todo"
+      onClick={() => deleteTodo(id)}
+      className="todo-item__delete"
+    >
       X
     </span>
   </div>

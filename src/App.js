@@ -4,7 +4,7 @@ import TodoList from "./components/TodoList";
 import TodoListHook from "./components/TodoListHook";
 
 function App() {
-  const title = "SJJ's Todo List";
+  const title = "MyFirstTodoList";
   const [todoListArray, setTodoListArray] = useState([title]);
   const [newListName, setNewListName] = useState("");
 
@@ -12,6 +12,7 @@ function App() {
     event.preventDefault();
     setNewListName(event.target.value);
   };
+  console.log(todoListArray);
   const addNewList = (event) => {
     const listName = newListName;
     if (!listName || !listName.length) {
@@ -32,9 +33,11 @@ function App() {
         placeholder="New List Name here"
       />
       <button onClick={addNewList}>Add-List</button>
+
       {/* {todoListArray.map((todoList) => (
         <TodoList title={todoList}></TodoList>
       ))} */}
+      <br></br>
       {todoListArray.map((todoList) => (
         <TodoListHook title={todoList}></TodoListHook>
       ))}
